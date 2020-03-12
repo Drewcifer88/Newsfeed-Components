@@ -71,6 +71,15 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
+    title: 'From software',
+    date: 'Jan 1st, 2020',
+    firstParagraph: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? `,
+
+    secondParagraph: `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,    c   onsectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? `,
+
+    thirdParagraph: `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?`
+  },
+  {
     title: 'Professional Software Development in 2019',
     date: 'Jan 1st, 2019',
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
@@ -88,6 +97,56 @@ const data = [
   }
 ];
 
+
+function lambdaPanel(banana) {
+  const div = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const date = document.createElement('p');
+  const para = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  // const para4 = document.createElement('p');
+  const span = document.createElement('button');
+
+  div.append(h2);
+  div.append(date);
+  div.append(para);
+  div.append(para2);
+  div.append(para3);
+  // div.append(para4);
+  div.append(span);
+
+  div.classList.add('article');
+  date.classList.add('date');
+  span.classList.add('expandButton');
+
+  span.textContent = 'Expand';
+  h2.textContent = banana.title;
+  date.textContent = banana.date;
+  para.textContent = banana.firstParagraph;
+  para2.textContent = banana.secondParagraph;
+  para3.textContent = banana.thirdParagraph;
+
+  span.addEventListener(`click`,() => {
+    span.classList.toggle(`article-open`)
+})
+
+  span.addEventListener('click', () => {
+    div.classList.toggle('article-open');
+  });
+
+  return div
+}
+
+const articles = document.querySelector('.articles');
+
+  data.forEach( data => {
+    articles.append(lambdaPanel(data))
+  });
+
+  data.map( data => {
+    
+  });
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
